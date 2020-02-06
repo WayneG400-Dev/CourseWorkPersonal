@@ -1,0 +1,43 @@
+{
+  "name": "1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -s -D -d dist --presets env,stage-0 --compact false ",
+    "start": "NODE_ENV=production pm2 start dist",
+    "prestart": "npm run -s build",
+    "lint": "eslint src"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-unused-vars": 1
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "idb-connector": "^1.1.5",
+    "itoolkit": "^0.1.4",
+    "loopback-datasource-juggler": "^4.4.0",
+    "node-pre-gyp": "^0.12.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.9.0",
+    "eslint-config-google": "^0.11.0",
+    "nodemon": "^1.18.7"
+  }
+}

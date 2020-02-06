@@ -1,0 +1,32 @@
+FILE = './source_in/CONTUPD2ER.RPGLE'
+
+
+
+line:3  - 000300171115     FCONTRACT  UF   E           K DISK
+line:4  - 000400171124     F                                     RENAME(CONTRACTF:CONTF)
+
+line 4:28 token recognition error at: ' '
+....
+line 4:77 token recognition error at: ')'
+
+Conclusion: Parser does not Recognise split 'F' lines
+_____________________________________________________
+
+line:13 - 001300171124     dCompleteNote...
+line:14 - 001400171124     d                 S            150A
+
+line 13:30 token recognition error at: '.'
+line 13:31 token recognition error at: '.'
+line 13:32 token recognition error at: '.'
+
+Conclusion: Parser does not Recognise split 'D' lines
+_____________________________________________________
+
+Object {row: 5, column: 0, text: "mismatched input '000500171115' expecting FS_EndOf…", …}
+column:0
+row:5
+text:"mismatched input '000500171115' expecting FS_EndOfFile"
+type:"error"
+
+Conclusion: Logic Error due to Parser does not Recognise split 'F' lines
+_____________________________________________________

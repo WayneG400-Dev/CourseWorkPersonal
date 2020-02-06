@@ -1,0 +1,107 @@
+Debugging with inspector protocol because Node.js v8.9.4 was detected.
+node --inspect-brk=30359 Step3/index.js 
+Debugger listening on ws://127.0.0.1:30359/d290dc12-160f-4d06-82ac-e8732fb6ebf8
+Debugger attached.
+line 4:28 token recognition error at: ' '
+line 4:29 token recognition error at: ' '
+line 4:30 token recognition error at: ' '
+line 4:31 token recognition error at: ' '
+line 4:32 token recognition error at: ' '
+line 4:33 token recognition error at: ' '
+line 4:34 token recognition error at: ' '
+line 4:35 token recognition error at: ' '
+line 4:36 token recognition error at: ' '
+line 4:37 token recognition error at: ' '
+line 4:38 token recognition error at: ' '
+line 4:39 token recognition error at: ' '
+line 4:40 token recognition error at: ' '
+line 4:41 token recognition error at: ' '
+line 4:42 token recognition error at: ' '
+line 4:43 token recognition error at: ' '
+line 4:44 token recognition error at: ' '
+line 4:45 token recognition error at: ' '
+line 4:46 token recognition error at: ' '
+line 4:47 token recognition error at: ' '
+line 4:48 token recognition error at: ' '
+line 4:49 token recognition error at: ' '
+line 4:50 token recognition error at: ' '
+line 4:51 token recognition error at: ' '
+line 4:52 token recognition error at: ' '
+line 4:53 token recognition error at: ' '
+line 4:54 token recognition error at: ' '
+line 4:55 token recognition error at: 'R'
+line 4:56 token recognition error at: 'E'
+line 4:57 token recognition error at: 'N'
+line 4:58 token recognition error at: 'A'
+line 4:59 token recognition error at: 'M'
+line 4:60 token recognition error at: 'E'
+line 4:61 token recognition error at: '('
+line 4:63 token recognition error at: 'O'
+line 4:64 token recognition error at: 'N'
+line 4:66 token recognition error at: 'R'
+line 4:67 token recognition error at: 'A'
+line 4:68 token recognition error at: 'C'
+line 4:69 token recognition error at: 'T'
+line 4:70 token recognition error at: 'F'
+line 4:71 token recognition error at: ':'
+line 4:72 token recognition error at: 'C'
+line 4:73 token recognition error at: 'O'
+line 4:74 token recognition error at: 'N'
+line 4:75 token recognition error at: 'T'
+line 4:76 token recognition error at: 'F'
+line 4:77 token recognition error at: ')'
+line 13:30 token recognition error at: '.'
+line 13:31 token recognition error at: '.'
+line 13:32 token recognition error at: '.'
+
+Crash:errors
+Array(1) [Object]
+errors
+Array(1) [Object]
+length:1
+__proto__:Array(0) [, …]
+concat:function concat() { … }
+constructor:function Array() { … }
+copyWithin:function copyWithin() { … }
+entries:function entries() { … }
+every:function every() { … }
+fill:function fill() { … }
+filter:function filter() { … }
+find:function find() { … }
+[[FunctionLocation]]:internal#location
+arguments:TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+caller:TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+length:1
+name:"find"
+__proto__:function () { … }
+findIndex:function findIndex() { … }
+forEach:function forEach() { … }
+includes:function includes() { … }
+indexOf:function indexOf() { … }
+join:function join() { … }
+keys:function keys() { … }
+lastIndexOf:function lastIndexOf() { … }
+length:0
+map:function map() { … }
+pop:function pop() { … }
+push:function push() { … }
+reduce:function reduce() { … }
+reduceRight:function reduceRight() { … }
+reverse:function reverse() { … }
+shift:function shift() { … }
+slice:function slice() { … }
+some:function some() { … }
+sort:function sort() { … }
+splice:function splice() { … }
+Symbol(Symbol.iterator):function values() { … }
+Symbol(Symbol.unscopables):Object {copyWithin: true, entries: true, fill: true, …}
+toLocaleString:function toLocaleString() { … }
+toString:function toString() { … }
+unshift:function unshift() { … }
+__proto__:Object {constructor: , __defineGetter__: , __defineSetter__: , …}
+0:Object {row: 5, column: 0, text: "mismatched input '000500171115' expecting FS_EndOf…", …}
+column:0
+row:5
+text:"mismatched input '000500171115' expecting FS_EndOfFile"
+type:"error"
+__proto__:Object {constructor: , __defineGetter__: , __defineSetter__: , …}

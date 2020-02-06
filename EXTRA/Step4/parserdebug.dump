@@ -1,0 +1,76 @@
+data =
+"000100171115     H DEBUG DATEDIT(*YMD) DFTACTGRP(*NO)
+000200171115     H OPTION(*SRCSTMT:*NODEBUGIO)
+000300171115     FCONTRACT  UF   E           K DISK
+000400171124     F                                     RENAME(CONTRACTF:CONTF)
+000500171115     FCUSTOMER  UF   E           K DISK
+000600171115     D                sds
+000700171115     D@@DAT                  191    198
+000800171115     D@@USR                  254    263
+000900171115     D@@TIM                  270    275
+001000171115     d@@PGM                  334    343
+001100171124     dTEXT1            C                   'Expiry Date Reached'
+001200171115     dTEXT2            C                   'Contract ID:'
+001300171124     dCompleteNote...
+001400171124     d                 S            150A
+001500171115     dcurdate          S                   like(COEXPIRE)
+001600171124     d Diffval         S             10i 0
+001700171115     D*
+001800921006     C*****************************************************************
+001900921006     C* Receive Parameters
+002000171115     C     *ENTRY        PLIST
+002100171115     C                   PARM                    @@RTN             1
+002200171115     C*
+002300171115     C* Do for all records in file.
+002400171115     C*
+002500171115     C     *loval        SETLL     CONTRACT
+002600171115     C                   READ      CONTRACT                             4444REDR
+002700171115     C     *IN44         DOWEQ     '0'                                      REDR
+002800171115     C*
+002900171115     C*  Has the date been reached
+003000171115     C                   EVAL      CURDATE = %date()
+003100171115     C     CURDATE       IFGT      COEXPIRE
+003200171115     C*
+003300171115     C*  Update Status to Expired on Contract
+003400171222     C                   EVAL      COSTSID = ' E'
+003500171115     c     CONOTE        CAT       TEXT1         CONOTE
+003600171115     C                   MOVE      @@USR         COAUUUSR
+003700171115     C                   eval      COAUUSTP = %timestamp()
+003800171222     C                   UPDATE    CONTF
+003900171115     C*
+004000171115     C*  Update the note Filed on Cumstomer
+004100171115     C                   EXSR      $UPCUS
+004200171115     C*
+004300171115     C* End: Expiry Reached
+004400171115     C                   ENDIF
+004500171115     C                   READ      CONTRACT                                 REDR
+004600171115     C*
+004700171115     C* End: OLDCONT  Read
+004800171115     C                   ENDDO
+004900921006     C*
+005000921006     C* Terminate Program
+005100171115     C                   SETON                                        LR
+005200171115     C                   RETURN
+005300921006     C*****************************************************************
+005400921006     C*
+005500921006     C*****************************************************************
+005600171115     C     $UPCUS        BEGSR
+005700921006     C*
+005800921006     C* Process Request
+005900921006     C*
+006000921006     C*
+006100171115     C     COCUID        CHAIN     CUSTOMER                             50  REDR
+006200171115     C     *IN50         IFEQ      '1'
+006300171115     C                   MOVE      COCOID        WCHARID          10
+006400171115     c     TEXT2         CAT       WCHARID       CUNOTE
+006500171115     c     CUNOTE        CAT       TEXT1         CUNOTE
+006600171222     C                   EVAL      CUSTSID  = COSTSID
+006700171115     C                   EVAL      CUUUSR = COAUUUSR
+006800171115     C                   EVAL      CUUDAT = *DATE
+006900171115     C                   TIME                    CUUTIM
+007000171115     C                   UPDATE    CUSTF
+007100171115     C                   ENDIF
+007200921006     C*
+007300171115     C                   ENDSR
+007400921006     C*****************************************************************
+"
