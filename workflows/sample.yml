@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Send email
+      uses: devellany/send-mail@v1.0.2
+      with:
+          host: smtp.naver.com
+          account: ${{secrets.MAIL_ADDRESS}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          sender: devellany
+          from: ${{secrets.MAIL_ADDRESS}}
+          subject: Github Actions job result
+          body: file://README.md
+          attachments: '[{"path":"README.md"}]'
+          to: devellany@gmail.com
